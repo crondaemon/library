@@ -1,0 +1,12 @@
+<div class="book">
+  <%= link_to book.title, book_path(book) %>
+  <div class="book__actions">
+    <%= button_to "Delete",
+                  book_path(book),
+                  method: :delete,
+                  class: "btn btn--light" %>
+    <%= link_to "Edit",
+                edit_book_path(book),
+                class: "btn btn-light" %>
+  </div>
+</div>

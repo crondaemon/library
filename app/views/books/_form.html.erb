@@ -1,0 +1,11 @@
+<%= simple_form_for book, html: { class: "book form" } do |f| %>
+  <% if book.errors.any? %>
+    <div class="error-message">
+      <%= book.errors.full_messages.to_sentence.capitalize %>
+    </div>
+  <% end %>
+
+  <%= f.input :title, input_html: { autofocus: true } %>
+  <%= f.input :authors, input_html: { autofocus: true } %>
+  <%= f.submit class: "btn btn-secondary" %>
+<% end %>

@@ -1,0 +1,18 @@
+# config/locales/simple_form.en.yml
+
+en:
+  simple_form:
+    placeholders:
+      book:
+        title: Title of your book
+        authors: Authors
+    labels:
+      book:
+        title: Title
+        authors: Authors
+
+  helpers:
+    submit:
+      book:
+        create: Create book
+        update: Update book

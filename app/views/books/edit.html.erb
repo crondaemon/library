@@ -1,0 +1,9 @@
+<main class="container">
+  <%= link_to sanitize("&larr; Back to book"), book_path(@book) %>
+
+  <div class="header">
+    <h1>Edit book</h1>
+  </div>
+
+  <%= render "form", book: @book %>
+</main>
