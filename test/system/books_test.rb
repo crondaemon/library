@@ -5,6 +5,13 @@ class BooksTest < ApplicationSystemTestCase
     @book = books(:first) 
   end
 
+  test "Showing a book" do
+    visit books_path
+    click_link @book.title
+
+    assert_selector "h1", text: @book.title
+  end
+
   test "Creating a new book" do
     visit books_path
     assert_selector "h1", text: "Books"
