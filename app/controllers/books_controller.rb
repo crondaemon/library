@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = Book.all
+    @books = Book.ordered
   end
 
   def show
@@ -16,7 +16,10 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
-      redirect_to books_path, notice: "Book was successfully created."
+      respond_to do |format|
+        format.html{ redirect_to books_path, notice: "Book was successfully created." }
+        format.turbo_stream
+      end
     else
       render :new, status: :unprocessable_entity
     end
@@ -35,7 +38,11 @@ class BooksController < ApplicationController
 
   def destroy
     @book.destroy
-    redirect_to books_path, notice: "Book was successfully destroyed."
+
+    respond_to do |format|
+      format.html{ redirect_to books_path, notice: "Book was successfully destroyed." }
+      format.turbo_stream
+    end
   end
 
   private

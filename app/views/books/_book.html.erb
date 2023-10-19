@@ -1,7 +1,9 @@
-<div class="book">
-  <%= link_to "#{book.authors}: #{book.title}", book_path(book) %>
-  <div class="book_actions">
-    <%= button_to "Delete", book_path(book), method: :delete, class: "btn btn--light" %>
-    <%= link_to "Edit", edit_book_path(book), class: "btn btn-light" %>
+<%= turbo_frame_tag book do %>
+  <div class="book">
+    <%= link_to "#{book.authors}: #{book.title}", book_path(book), data: { turbo_frame: "_top" } %>
+    <div class="book_actions">
+      <%= button_to "Delete", book_path(book), method: :delete, class: "btn btn--light" %>
+      <%= link_to "Edit", edit_book_path(book), class: "btn btn--light" %>
+    </div>
   </div>
-</div>
+<% end %>

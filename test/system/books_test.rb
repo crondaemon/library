@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class BooksTest < ApplicationSystemTestCase
   setup do
-    @book = books(:first) 
+    @book = Book.ordered.first 
   end
 
   test "Showing a book" do
@@ -17,10 +17,10 @@ class BooksTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Books"
 
     click_on "New book"
-    assert_selector "h1", text: "New book"
-
     fill_in "Title", with: "Capybara book"
     fill_in "Authors", with: "Capybara pirate"
+
+    assert_selector "h1", text: "Books"
     click_on "Create book"
 
     assert_selector "h1", text: "Books"
@@ -32,10 +32,9 @@ class BooksTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Books"
 
     click_on "Edit", match: :first
-    assert_selector "h1", text: "Edit book"
-
     fill_in "Title", with: "Updated book"
-    fill_in "Authors", with: "Updated author"
+
+    assert_selector "h1", text: "Books"
     click_on "Update book"
 
     assert_selector "h1", text: "Books"
@@ -45,6 +44,7 @@ class BooksTest < ApplicationSystemTestCase
   test "Destroying a book" do
     visit books_path
     assert_text @book.title
+
     click_on "Delete", match: :first
     assert_no_text @book.title
   end
