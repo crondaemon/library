@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = Book.ordered
+    @books = current_institute.books.ordered
   end
 
   def show
@@ -13,7 +13,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
+    @book = current_institute.books.build(book_params)
 
     if @book.save
       respond_to do |format|
@@ -48,7 +48,7 @@ class BooksController < ApplicationController
   private
 
   def set_book
-    @book = Book.find(params[:id])
+    @book = current_institute.books.find(params[:id])
   end
 
   def book_params

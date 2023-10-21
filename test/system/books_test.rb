@@ -2,6 +2,7 @@ require "application_system_test_case"
 
 class BooksTest < ApplicationSystemTestCase
   setup do
+    login_as users(:dario)
     @book = Book.ordered.first 
   end
 

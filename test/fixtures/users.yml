@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the "{}" from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+dario:
+  email: dario@icvenaria1.it
+  institute: ic1
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+gino:
+  email: gino@icvenaria1.it
+  institute: ic1
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+pino:
+  email: pino@icvenaria2.it
+  institute: ic2
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+lino:
+  email: lino@icvenaria2.it
+  institute: ic2
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>

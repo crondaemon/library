@@ -1,11 +1,14 @@
 first:
   title: First book
   authors: Author 1
+  institute: ic1
 
 second:
   title: Second book
   authors: Author 2
+  institute: ic1
 
 third:
   title: Third book
   authors: Author 3
+  institute: ic2
