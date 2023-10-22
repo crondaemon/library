@@ -1,2 +1,3 @@
 <%= turbo_stream.prepend "books", @book %>
 <%= turbo_stream.update Book.new, "" %>
+<%= render_turbo_stream_flash_messages %>
