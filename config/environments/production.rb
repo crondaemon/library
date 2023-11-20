@@ -90,4 +90,6 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.hosts << "library-1e9w4whh.b4a.run"
 end
