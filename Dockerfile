@@ -14,12 +14,11 @@ COPY Gemfile.lock /library/Gemfile.lock
 # Install gems
 RUN bundle install
 
-# Assets
-RUN bundle exec rails -T
-RUN bundle exec rails assets:precompile
-
 # Copy the rest of the application into the image
 COPY . /library
+
+# Assets
+RUN rails assets:precompile
 
 # Expose the port that the Rails server will run on
 EXPOSE 3000
