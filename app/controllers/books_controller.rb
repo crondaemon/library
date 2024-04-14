@@ -17,8 +17,8 @@ class BooksController < ApplicationController
 
     if @book.save
       respond_to do |format|
-        format.html{ redirect_to books_path, notice: "Book was successfully created." }
-        format.turbo_stream{ flash.now[:notice] = "Book was successfully created." }
+        format.html { redirect_to books_path, notice: "Book was successfully created." }
+        format.turbo_stream { flash.now[:notice] = "Book was successfully created." }
       end
     else
       render :new, status: :unprocessable_entity
@@ -31,8 +31,8 @@ class BooksController < ApplicationController
   def update
     if @book.update(book_params)
       respond_to do |format|
-        format.html{ redirect_to books_path, notice: "Book was successfully updated." }
-        format.turbo_stream{ flash.now[:notice] = "Book was successfully updated." }
+        format.html { redirect_to books_path, notice: "Book was successfully updated." }
+        format.turbo_stream { flash.now[:notice] = "Book was successfully updated." }
       end
     else
       render :edit, status: :unprocessable_entity
@@ -43,8 +43,8 @@ class BooksController < ApplicationController
     @book.destroy
 
     respond_to do |format|
-      format.html{ redirect_to books_path, notice: "Book was successfully destroyed." }
-      format.turbo_stream{ flash.now[:notice] = "Book was successfully destroyed." }
+      format.html { redirect_to books_path, notice: "Book was successfully destroyed." }
+      format.turbo_stream { flash.now[:notice] = "Book was successfully destroyed." }
     end
   end
 

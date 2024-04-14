@@ -2,7 +2,7 @@
 FROM ruby:3.2.2
 
 # Install Node.js and Yarn (needed for Rails asset compilation)
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client yarn
+RUN apt-get update -qq && apt-get install -y nodejs sqlite3 yarn
 
 # Set the working directory
 WORKDIR /library
