@@ -2,7 +2,7 @@
 FROM ruby:3.2.3
 
 # Install Node.js and Yarn (needed for Rails asset compilation)
-RUN apt-get update -qq && apt-get install -y nodejs sqlite3 yarn
+RUN apt-get update -qq && apt-get install -y nodejs sqlite3 npm
 
 # Set the working directory
 WORKDIR /library
@@ -17,7 +17,8 @@ RUN bundle install
 # Copy the rest of the application into the image
 COPY . /library
 
-# Assets
+# Prepare the app
+RUN npm install --global yarn
 RUN rails assets:precompile
 
 # Expose the port that the Rails server will run on
