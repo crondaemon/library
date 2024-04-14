@@ -15,7 +15,7 @@ COPY Gemfile.lock /library/Gemfile.lock
 RUN bundle install
 
 # Assets
-rails assets:precompile
+RUN rails assets:precompile
 
 # Copy the rest of the application into the image
 COPY . /library
